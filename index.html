@@ -17,30 +17,1160 @@
   </head>
   <body class="page-home">
     <div class="page-wrapper">
+      <div class="loader">
+        <div class="loader__logo">
+          <svg class="icon icon-loader-logo">
+            <use xlink:href="assets/images/sprites/sprite-multi.svg#loader-logo"></use>
+          </svg>
+          <svg class="icon icon-logo-mini">
+            <use xlink:href="assets/images/sprites/sprite-mono.svg#logo-mini"></use>
+          </svg>
+        </div>
+      </div>
+      <style>
+        .loader {
+          position: fixed;
+          z-index: 100;
+          inset: 0;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          background-color: var(--primary-color);
+          opacity: 1;
+          visibility: visible;
+
+          transition: 0.3s;
+        }
+
+        .animatable .loader {
+          opacity: 0;
+          visibility: hidden;
+        }
+
+        .loader__logo {
+          position: relative;
+
+          width: 15rem;
+          height: 5rem;
+        }
+
+        .loader__logo .icon-loader-logo {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        .loader__logo .icon-logo-mini {
+          position: absolute;
+          left: 0;
+          top: 0;
+
+          width: 2.3rem;
+          height: 2.4rem;
+          object-fit: contain;
+
+          color: #fff;
+
+          animation-duration: 1.5s;
+        }
+      </style>
 
       <header class="header">
-        <div class="site-container">
-          <a href="/">
-            <img src="assets/images/logo.svg" alt="Logo">
-          </a>
-          <button class="button" data-path="modal">Открыть модалку</button>
+        <div class="container">
+          <nav class="header__nav">
+            <div class="header__top">
+              <a class="header__logo link" href="index.html">
+                <img src="assets/images/icons/mono/logo-white.svg">
+                <img src="assets/images/icons/multi/logo-black.svg">
+              </a>
+              <div class="header__content">
+                <ul class="header__menu">
+                  <li class="header__menu-item">
+                    <a class="header__menu-link link" href="#">Продукты</a>
+                  </li>
+                  <li class="header__menu-item">
+                    <a class="header__menu-link link" href="#">Услуги</a>
+                  </li>
+                  <li class="header__menu-item">
+                    <a class="header__menu-link link" href="#">Импортозамещение</a>
+                  </li>
+                </ul>
+                <ul class="header__menu">
+                  <li class="header__menu-item">
+                    <a class="header__menu-link link" href="#">Карьера</a>
+                  </li>
+                  <li class="header__menu-item">
+                    <a class="header__menu-link link" href="#">О компании</a>
+                  </li>
+                  <li class="header__menu-item">
+                    <a class="header__menu-link link" href="#">Медиацентр</a>
+                  </li>
+                </ul>
+                <button class="header__burger" aria-label="Открыть бургерное меню"></button>
+                <a class="header__link link" href="#">Академия iFellow</a>
+                <div class="header__languages">
+                  <a class="header__language link active" href="#">RU</a>
+                  <a class="header__language link" href="#">EN</a>
+                </div>
+                <button class="header__search-button link" aria-label="Открыть строку поиска">
+                  <svg class="icon icon-search-icon">
+                    <use xlink:href="assets/images/sprites/sprite-multi.svg#search-icon"></use>
+                  </svg>
+                </button>
+                <button class="header__modal-button button button--border-blue" data-path="contact">Свяжитесь с нами</button>
+              </div>
+            </div>
+            <a class="header__phone link" href="tel:+74955404956"><span>+7 495 540-49-56</span>
+              <svg class="icon icon-phone-icon">
+                <use xlink:href="assets/images/sprites/sprite-multi.svg#phone-icon"></use>
+              </svg>
+            </a>
+          </nav>
         </div>
+        <nav class="header__burger-nav">
+          <div class="header__burger-header">
+            <div class="container">
+              <a class="header__burger-logo link" href="index.html">
+                <img src="assets/images/icons/multi/logo-black.svg">
+              </a>
+              <form class="header__burger-search" action="#">
+                <input class="header__burger-search-input" type="text" name="headerBurgerSearch" id="headerBurgerSearch" placeholder="Поиск по названию">
+                <button class="header__burger-search-button button button--blue"><span>Найти</span>
+                  <svg class="icon icon-button-arrow">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                  </svg>
+                </button>
+                <div class="header__burger-search-decor">
+                  <svg class="icon icon-search-icon">
+                    <use xlink:href="assets/images/sprites/sprite-multi.svg#search-icon"></use>
+                  </svg>
+                </div>
+              </form>
+              <a class="header__burger-phone link" href="#">+7 495 540-49-56</a>
+              <button class="header__burger-close">
+                <svg class="icon icon-cross-icon">
+                  <use xlink:href="assets/images/sprites/sprite-multi.svg#cross-icon"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="header__burger-body">
+            <div class="container">
+              <div class="header__burger-left">
+                <div class="header__burger-accordion js-accordion js-accordion-tablet" data-close-other>
+                  <h3 class="header__burger-accordion-title js-accordion-btn">Продукты</h3>
+                  <div class="header__burger-accordion-content js-accordion-content">
+                    <ul class="header__burger-accordion-list">
+                      <li class="header__burger-accordion-item">
+                        <a class="header__burger-accordion-link link" href="#">ОРИОН: управление проектами и ресурсами</a>
+                      </li>
+                      <li class="header__burger-accordion-item">
+                        <a class="header__burger-accordion-link link" href="#">Перестройка процессов и помещение их в цифровую среду</a>
+                      </li>
+                      <li class="header__burger-accordion-item">
+                        <a class="header__burger-accordion-link link" href="#">Единая платформа тестирования</a>
+                      </li>
+                      <li class="header__burger-accordion-item">
+                        <a class="header__burger-accordion-link link" href="#">Управление бизнес-процессами и знаниями</a>
+                      </li>
+                      <li class="header__burger-accordion-item">
+                        <a class="header__burger-accordion-link link" href="#">Роботизация бизнес-процессов</a>
+                      </li>
+                      <li class="header__burger-accordion-item">
+                        <a class="header__burger-accordion-link link" href="#">Управление данными</a>
+                      </li>
+                    </ul>
+                    <a class="header__burger-accordion-more button button--border" href="#"><span>Смотреть все</span>
+                      <svg class="icon icon-button-arrow">
+                        <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="header__burger-accordion js-accordion js-accordion-tablet" data-close-other>
+                  <h3 class="header__burger-accordion-title js-accordion-btn">Услуги</h3>
+                  <div class="header__burger-accordion-content js-accordion-content">
+                    <ul class="header__burger-accordion-list">
+                      <li class="header__burger-accordion-item">
+                        <a class="header__burger-accordion-link link" href="#">ОРИОН: управление проектами и ресурсами</a>
+                      </li>
+                      <li class="header__burger-accordion-item">
+                        <a class="header__burger-accordion-link link" href="#">Перестройка процессов и помещение их в цифровую среду</a>
+                      </li>
+                      <li class="header__burger-accordion-item">
+                        <a class="header__burger-accordion-link link" href="#">Единая платформа тестирования</a>
+                      </li>
+                      <li class="header__burger-accordion-item">
+                        <a class="header__burger-accordion-link link" href="#">Управление бизнес-процессами и знаниями</a>
+                      </li>
+                      <li class="header__burger-accordion-item">
+                        <a class="header__burger-accordion-link link" href="#">Роботизация бизнес-процессов</a>
+                      </li>
+                      <li class="header__burger-accordion-item">
+                        <a class="header__burger-accordion-link link" href="#">Управление данными</a>
+                      </li>
+                    </ul>
+                    <a class="header__burger-accordion-more button button--border" href="#"><span>Смотреть все</span>
+                      <svg class="icon icon-button-arrow">
+                        <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="header__burger-menu">
+                <div class="header__burger-menu-block">
+                  <h3 class="header__burger-menu-title">Клиентам и Партнерам</h3>
+                  <ul class="header__burger-menu-list">
+                    <li class="header__burger-menu-item">
+                      <a class="header__burger-menu-link link" href="#">Импортозамещение</a>
+                    </li>
+                    <li class="header__burger-menu-item">
+                      <a class="header__burger-menu-link link" href="#">Проекты</a>
+                    </li>
+                    <li class="header__burger-menu-item">
+                      <a class="header__burger-menu-link link" href="#">Медиацентр</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="header__burger-menu-block">
+                  <h3 class="header__burger-menu-title">Соискателям</h3>
+                  <ul class="header__burger-menu-list">
+                    <li class="header__burger-menu-item">
+                      <a class="header__burger-menu-link link" href="#">Команда iFellow</a>
+                    </li>
+                    <li class="header__burger-menu-item">
+                      <a class="header__burger-menu-link link" href="#">Жизнь в компании</a>
+                    </li>
+                    <li class="header__burger-menu-item">
+                      <a class="header__burger-menu-link link" href="#">Вакансии</a>
+                    </li>
+                    <li class="header__burger-menu-item">
+                      <a class="header__burger-menu-link link" href="#">Академия iFellow</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="header__burger-menu-block">
+                  <h3 class="header__burger-menu-title">О компании</h3>
+                  <ul class="header__burger-menu-list">
+                    <li class="header__burger-menu-item">
+                      <a class="header__burger-menu-link link" href="#">О компании</a>
+                    </li>
+                    <li class="header__burger-menu-item">
+                      <a class="header__burger-menu-link link" href="#">Наша команда</a>
+                    </li>
+                    <li class="header__burger-menu-item">
+                      <a class="header__burger-menu-link link" href="#">Клиенты и партнеры</a>
+                    </li>
+                    <li class="header__burger-menu-item">
+                      <a class="header__burger-menu-link link" href="#">Контакты</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header__burger-footer">
+            <div class="container">
+              <div class="header__burger-footer-wrapper">
+                <ul class="socials">
+                  <li class="socials__item">
+                    <a class="socials__link" href="#">
+                      <img class="lazy" data-src="assets/images/social-1.svg" src="#" alt="Иконка социальной сети">
+                    </a>
+                  </li>
+                  <li class="socials__item">
+                    <a class="socials__link" href="#">
+                      <img class="lazy" data-src="assets/images/social-2.svg" src="#" alt="Иконка социальной сети">
+                    </a>
+                  </li>
+                  <li class="socials__item">
+                    <a class="socials__link" href="#">
+                      <img class="lazy" data-src="assets/images/social-3.svg" src="#" alt="Иконка социальной сети">
+                    </a>
+                  </li>
+                  <li class="socials__item">
+                    <a class="socials__link" href="#">
+                      <img class="lazy" data-src="assets/images/social-4.svg" src="#" alt="Иконка социальной сети">
+                    </a>
+                  </li>
+                </ul>
+                <address class="header__burger-address">101000, г. Москва, Лубянский проезд, д. 15, стр. 2</address>
+                <a class="header__burger-mail link" href="mailto:info@ifellow.ru">info@ifellow.ru</a>
+              </div>
+            </div>
+          </div>
+        </nav>
       </header>
 
       <main class="page-main main">
-        <section class="intro">
-          <div class="site-container">
-            <picture>
-              <source type="image/webp" srcset="assets/images/test/test-image.webp" alt="test">
-              <img src="assets/images/test/test-image.jpg" alt="test">
-            </picture>
+        <div class="intro">
+          <div class="container">
+            <div class="intro__wrapper">
+              <div class="intro__content">
+                <h1 class="intro__title">ИТ — компания высоких скоростей</h1>
+                <div class="intro__content-wrapper">
+                  <div class="intro__content-left">
+                    <div class="intro__text">
+                      <p>Быстрая реакция на изменения и&nbsp;сервисно-ориентированный подход к проектам</p>
+                    </div>
+                    <div class="intro__links">
+                      <a class="intro__link" href="#" data-count="7">Продукты</a>
+                      <a class="intro__link" href="#" data-count="7">Услуги</a>
+                    </div>
+                  </div>
+                  <div class="intro__content-right"><span class="intro__tag"><svg class="icon icon-logo-mini"><use xlink:href="assets/images/sprites/sprite-mono.svg#logo-mini"></use></svg><span>Анонсы</span>
+                    </span>
+                    <ul class="intro__trailer">
+                      <li class="intro__trailer-item">
+                        <h3 class="intro__trailer-title">
+                          <a href="#">Подходы к автоматизации ИТ-бизнеса. Сергей Зубаров на GlobalCIO</a>
+                        </h3><span class="intro__trailer-category">Новости</span>
+                      </li>
+                      <li class="intro__trailer-item">
+                        <h3 class="intro__trailer-title">
+                          <a href="#">Регистрация на вебинар Опыт миграции на CommuniGate Pro</a>
+                        </h3><span class="intro__trailer-category">Мероприятие</span>
+                      </li>
+                      <li class="intro__trailer-item">
+                        <h3 class="intro__trailer-title">
+                          <a href="#">RPA как сервис. Готовые роботы под ваши бизнес-процессы</a>
+                        </h3><span class="intro__trailer-category">Продукт</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <video class="intro__video" loading="lazy" autoplay="autoplay" muted="muted" loop="loop">
+              <source src="assets/videos/ifellow.webm" type="video/webm">
+              <source src="assets/videos/ifellow.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <section class="actual">
+          <div class="container">
+
+            <header class="section-header js-block-animate">
+              <h2 class="section-header__title">Актуальное</h2>
+            </header>
+            <div class="actual__header js-block-animate">
+              <div class="actual__tabs">
+                <button class="actual__tab active" data-count="7" data-href="1">Продукты</button>
+                <button class="actual__tab" data-count="7" data-href="2">Услуги</button>
+              </div>
+              <div class="actual__descs">
+                <div class="actual__desc active js-actual-tabs-content" data-id="1">
+                  <p class="actual__text">В портфеле iFellow продукты собственной разработки и решения от более 80 вендоров. Это позволяет сравнить и подобрать оптимальное решение под&nbsp;бизнес-задачи клиента.</p>
+                  <a class="actual__link button button--border" href="#"><span>Смотреть все продукты</span>
+                    <svg class="icon icon-button-arrow">
+                      <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="actual__desc js-actual-tabs-content" data-id="2">
+                  <p class="actual__text">В портфеле iFellow продукты собственной разработки и решения от более 80 вендоров. Это позволяет сравнить и подобрать оптимальное решение под&nbsp;бизнес-задачи клиента.</p>
+                  <a class="actual__link button button--border" href="#"><span>Смотреть все услуги</span>
+                    <svg class="icon icon-button-arrow">
+                      <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="actual__tabs-contents js-block-animate">
+              <div class="actual__tabs-content active js-actual-tabs-content" data-id="1">
+                <ul class="products-list">
+                  <li class="products-list__item products-list__item--green">
+                    <a class="products-list__link" href="#"><span class="products-list__category">Разработка iFellow</span>
+                      <h3 class="products-list__title">ОРИОН: управление ресурсами и проектами</h3><span class="products-list__more">Подробнее</span>
+                      <svg class="icon icon-product-green-2">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-green-2"></use>
+                      </svg>
+                      <svg class="icon icon-product-green-1">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-green-1"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="products-list__item products-list__item--light-blue">
+                    <a class="products-list__link" href="#"><span class="products-list__category">Разработка iFellow</span>
+                      <h3 class="products-list__title">DOKEE: сервис генерации типовых документов</h3><span class="products-list__more">Подробнее</span>
+                      <svg class="icon icon-product-light-blue-2">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-light-blue-2"></use>
+                      </svg>
+                      <svg class="icon icon-product-light-blue-1">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-light-blue-1"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="products-list__item products-list__item--sky">
+                    <a class="products-list__link" href="#">
+                      <h3 class="products-list__title">Роботизация бизнес-процессов (RPA)</h3><span class="products-list__more">Подробнее</span>
+                      <svg class="icon icon-product-sky-2">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-sky-2"></use>
+                      </svg>
+                      <svg class="icon icon-product-sky-1">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-sky-1"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="products-list__item products-list__item--blue">
+                    <a class="products-list__link" href="#">
+                      <h3 class="products-list__title">Управление бизнес-процессами и&nbsp; знаниями (BPMS)</h3><span class="products-list__more">Подробнее</span>
+                      <svg class="icon icon-product-blue-2">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-blue-2"></use>
+                      </svg>
+                      <svg class="icon icon-product-blue-1">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-blue-1"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+                <a class="actual__mobile-link button button--blue" href="#"><span>Смотреть все продукты</span>
+                  <svg class="icon icon-button-arrow">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                  </svg>
+                </a>
+              </div>
+              <div class="actual__tabs-content js-actual-tabs-content" data-id="2">
+                <ul class="products-list">
+                  <li class="products-list__item products-list__item--sky">
+                    <a class="products-list__link" href="#">
+                      <h3 class="products-list__title">Роботизация бизнес-процессов (RPA)</h3><span class="products-list__more">Подробнее</span>
+                      <svg class="icon icon-product-sky-2">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-sky-2"></use>
+                      </svg>
+                      <svg class="icon icon-product-sky-1">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-sky-1"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="products-list__item products-list__item--blue">
+                    <a class="products-list__link" href="#">
+                      <h3 class="products-list__title">Управление бизнес-процессами и&nbsp; знаниями (BPMS)</h3><span class="products-list__more">Подробнее</span>
+                      <svg class="icon icon-product-blue-2">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-blue-2"></use>
+                      </svg>
+                      <svg class="icon icon-product-blue-1">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-blue-1"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="products-list__item products-list__item--green">
+                    <a class="products-list__link" href="#"><span class="products-list__category">Разработка iFellow</span>
+                      <h3 class="products-list__title">ОРИОН: управление ресурсами и проектами</h3><span class="products-list__more">Подробнее</span>
+                      <svg class="icon icon-product-green-2">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-green-2"></use>
+                      </svg>
+                      <svg class="icon icon-product-green-1">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-green-1"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="products-list__item products-list__item--light-blue">
+                    <a class="products-list__link" href="#"><span class="products-list__category">Разработка iFellow</span>
+                      <h3 class="products-list__title">DOKEE: сервис генерации типовых документов</h3><span class="products-list__more">Подробнее</span>
+                      <svg class="icon icon-product-light-blue-2">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-light-blue-2"></use>
+                      </svg>
+                      <svg class="icon icon-product-light-blue-1">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#product-light-blue-1"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+                <a class="actual__mobile-link button button--blue" href="#"><span>Смотреть все услуги</span>
+                  <svg class="icon icon-button-arrow">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
         </section>
+        <section class="features">
+          <div class="container">
+
+            <header class="section-header js-block-animate">
+              <h2 class="section-header__title">Надёжный ИТ-партнёр</h2>
+            </header>
+            <div class="features__inner js-parallax-container js-block-animate">
+              <h3 class="features__subtitle">Преимущества работы с iFellow</h3>
+              <ul class="features__list">
+                <li class="features__item js-block-animate">
+                  <h4 class="features__item-title">Высокая скорость принятия решений</h4>
+                  <p class="features__item-text">Развитая внутренняя автоматизация и гибкая система управления проектами</p>
+                </li>
+                <li class="features__item js-block-animate">
+                  <h4 class="features__item-title">Сильные команды</h4>
+                  <p class="features__item-text">Статичные команды, низкая текучка кадров, инвестиции в развитие сотрудников</p>
+                </li>
+                <li class="features__item js-block-animate">
+                  <h4 class="features__item-title">Центры компетенций</h4>
+                  <p class="features__item-text">Формирование команд с подтверждённым опытом работы и компетенциями в отрасли</p>
+                </li>
+                <li class="features__item js-block-animate">
+                  <h4 class="features__item-title">Опыт работы с ТОП-50</h4>
+                  <p class="features__item-text">Знание потребностей и процессов крупных и территориально-распределённых холдингов</p>
+                </li>
+              </ul>
+              <div class="features__video-block" style="clip-path: url(#features-bg);">
+                <picture>
+                  <source type="image/webp" data-srcset="assets/images/features-bg.webp" alt="Фон блока с преимуществами" srcset="#">
+                  <img class="lazy js-parallax-element" data-src="assets/images/features-bg.jpg" src="#" alt="Фон блока с преимуществами">
+                </picture>
+              </div>
+              <svg class="features__mask" width="794" height="1343" viewBox="0 0 794 1343" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <clipPath id="features-bg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M793.235 351.9V83.6686C793.235 36.9125 759.336 0 716.397 0L470.065 0C427.126 0 393.228 36.9125 393.228 83.6686L393.228 317.449C393.228 327.292 393.227 334.675 390.967 344.518V346.979C388.708 371.587 372.888 428.187 289.271 428.187L76.8376 428.187C33.899 428.187 0 465.099 0 511.855L0 780.088C0 826.844 33.899 863.756 76.8376 863.756H323.17C366.108 863.756 400.007 826.844 400.007 780.088L400.007 546.307C400.007 536.464 400.007 529.081 402.267 519.238V516.777C404.527 492.169 420.347 435.569 503.964 435.569L716.397 435.569C759.336 435.569 793.235 398.656 793.235 351.9ZM400.706 1261.13L400.706 987.673C400.706 943.329 366.748 906.375 325.998 906.375H74.7079C33.9581 906.375 0 943.329 0 987.673L0 1261.13C0 1305.47 33.9581 1342.43 74.7079 1342.43L325.998 1342.43C366.748 1342.43 400.706 1305.47 400.706 1261.13Z" fill="#161616"></path>
+                </clipPath>
+              </svg>
+            </div>
+          </div>
+        </section>
+        <section class="news-section">
+          <div class="container">
+
+            <header class="section-header js-block-animate">
+              <h2 class="section-header__title">Медиацентр</h2>
+              <a class="section-header__link button button--border" href="#"><span>Смотреть все</span>
+                <svg class="icon icon-button-arrow">
+                  <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                </svg>
+              </a>
+            </header>
+            <div class="news-slider js-init-slider-container js-block-animate">
+              <div class="news-slider__slider swiper js-init-slider" data-slides-breakpoints="100:auto,641:2,950:3,1024:4" data-space="20">
+                <div class="swiper-wrapper">
+                  <div class="news-slider__slide swiper-slide">
+                    <div class="news-card news-card--main news-card--left-bottom-frame"><span class="news-card__category">RPA</span>
+                      <div class="news-card__img">
+                        <picture>
+                          <source type="image/webp" data-srcset="assets/images/news-section-1.webp" alt="Фото новости" srcset="#">
+                          <img class="lazy" data-src="assets/images/news-section-1.jpg" src="#" alt="Фото новости">
+                        </picture>
+                      </div>
+                      <h3 class="news-card__title">
+                        <a href="#">Хакеры часто выбирают нефтегазовые корпорации в качестве мишени</a>
+                      </h3>
+                      <div class="news-card__meta">
+                        <time class="news-card__date">20 сентября 2022</time><span class="news-card__tag">Публикации</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="news-slider__slide swiper-slide">
+                    <div class="news-card news-card--right-bottom-frame"><span class="news-card__category">Аналитика</span>
+                      <div class="news-card__img">
+                        <picture>
+                          <source type="image/webp" data-srcset="assets/images/news-section-2.webp" alt="Фото новости" srcset="#">
+                          <img class="lazy" data-src="assets/images/news-section-2.jpg" src="#" alt="Фото новости">
+                        </picture>
+                      </div>
+                      <h3 class="news-card__title">
+                        <a href="#">Курсы или ВУЗ: нужно ли айтишнику высшее образование</a>
+                      </h3>
+                      <div class="news-card__meta">
+                        <time class="news-card__date">14 сентября 2022</time><span class="news-card__tag">Публикации</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="news-slider__slide swiper-slide">
+                    <div class="news-card news-card--left-top-frame"><span class="news-card__category">Импортозамещение</span>
+                      <div class="news-card__img">
+                        <picture>
+                          <source type="image/webp" data-srcset="assets/images/news-section-3.webp" alt="Фото новости" srcset="#">
+                          <img class="lazy" data-src="assets/images/news-section-3.jpg" src="#" alt="Фото новости">
+                        </picture>
+                      </div>
+                      <h3 class="news-card__title">
+                        <a href="#">Хакеры часто выбирают нефтегазовые корпорации в качестве мишени</a>
+                      </h3>
+                      <div class="news-card__meta">
+                        <time class="news-card__date">20 сентября 2022</time><span class="news-card__tag">Публикации</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="news-slider__slide swiper-slide">
+                    <div class="news-card news-card--right-top-frame"><span class="news-card__category">Импортозамещение</span>
+                      <div class="news-card__img">
+                        <picture>
+                          <source type="image/webp" data-srcset="assets/images/news-section-4.webp" alt="Фото новости" srcset="#">
+                          <img class="lazy" data-src="assets/images/news-section-4.jpg" src="#" alt="Фото новости">
+                        </picture>
+                      </div>
+                      <h3 class="news-card__title">
+                        <a href="#">iFellow и «Первая Форма» помогут заказчикам развивать бизнес на отечественной BPMS</a>
+                      </h3>
+                      <div class="news-card__meta">
+                        <time class="news-card__date">20 сентября 2022</time><span class="news-card__tag">Публикации</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="news-slider__slide swiper-slide">
+                    <div class="news-card news-card--left-bottom-frame"><span class="news-card__category">RPA</span>
+                      <div class="news-card__img">
+                        <picture>
+                          <source type="image/webp" data-srcset="assets/images/news-section-1.webp" alt="Фото новости" srcset="#">
+                          <img class="lazy" data-src="assets/images/news-section-1.jpg" src="#" alt="Фото новости">
+                        </picture>
+                      </div>
+                      <h3 class="news-card__title">
+                        <a href="#">Хакеры часто выбирают нефтегазовые корпорации в качестве мишени</a>
+                      </h3>
+                      <div class="news-card__meta">
+                        <time class="news-card__date">20 сентября 2022</time><span class="news-card__tag">Публикации</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slider-navigation">
+                <button class="slider-navigation__button js-prev-slide" aria-label="Назад">
+                  <svg class="icon icon-slider-arrow">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#slider-arrow"></use>
+                  </svg>
+                </button>
+                <button class="slider-navigation__button js-next-slide" aria-label="Вперед">
+                  <svg class="icon icon-slider-arrow">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#slider-arrow"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <a class="news-section__link button button--blue" href="#"><span>Смотреть все</span>
+              <svg class="icon icon-button-arrow">
+                <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+              </svg>
+            </a>
+          </div>
+        </section>
+        <section class="team-section">
+          <div class="container">
+            <div class="team-section__wrapper js-block-animate">
+              <div class="team-section__content">
+                <h2 class="team-section__title js-block-animate">Команда iFellow</h2>
+                <h3 class="team-section__subtitle">Технологии делают люди</h3>
+                <div class="team-section__text">
+                  <p>Команда — наша главная ценность. Задача iFellow - раскрыть потенциал каждого сотрудника и сфокусировать его на возможностях, которые ему может дать сфера информационных технологий. Мы влюбим вас в ИТ!</p>
+                </div>
+                <a class="team-section__link button button--border" href="#"><span>О команде</span>
+                  <svg class="icon icon-button-arrow">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                  </svg>
+                </a>
+              </div>
+              <div class="team-section__job">
+                <ul class="team-section__job-list">
+                  <li class="team-section__job-item team-section__job-item--light-blue">
+                    <div class="team-section__job-overlay">
+                      <svg class="icon icon-team-job-bg">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#team-job-bg"></use>
+                      </svg>
+                    </div>
+                    <a class="team-section__job-link" href="#">
+                      <div class="team-section__job-meta"><span class="team-section__job-location">Удалённо</span>
+                      </div>
+                      <h4 class="team-section__job-title">Аналитик</h4>
+                      <p class="team-section__job-position">Middle<br>Знание SQL</p><span class="team-section__job-more">Подробнее</span>
+                    </a>
+                  </li>
+                  <li class="team-section__job-item team-section__job-item--green">
+                    <div class="team-section__job-overlay">
+                      <svg class="icon icon-team-job-bg">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#team-job-bg"></use>
+                      </svg>
+                    </div>
+                    <a class="team-section__job-link" href="#">
+                      <div class="team-section__job-meta"><span class="team-section__job-location">Томск</span>
+                      </div>
+                      <h4 class="team-section__job-title">Java-разработчик</h4>
+                      <p class="team-section__job-position">Senior<br>Опыт от 5 лет</p><span class="team-section__job-more">Подробнее</span>
+                    </a>
+                  </li>
+                  <li class="team-section__job-item team-section__job-item--green">
+                    <div class="team-section__job-overlay">
+                      <svg class="icon icon-team-job-bg">
+                        <use xlink:href="assets/images/sprites/sprite-multi.svg#team-job-bg"></use>
+                      </svg>
+                    </div>
+                    <a class="team-section__job-link" href="#">
+                      <div class="team-section__job-meta"><span class="team-section__job-location">Удалённо</span><span class="team-section__job-payment">до 200 000</span>
+                      </div>
+                      <h4 class="team-section__job-title">Android-разработчик</h4>
+                      <p class="team-section__job-position">Middle/Senior<br>Опыт от 3 лет</p><span class="team-section__job-more">Подробнее</span>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="team-section__job-gallery">
+                  <li class="team-section__job-gallery-item +">
+                    <picture>
+                      <source type="image/webp" data-srcset="assets/images/team-section-1.webp">
+                      <img class="lazy" data-src="assets/images/team-section-1.jpg" data-fancybox="" alt="Фото сотрудника">
+                    </picture>
+                  </li>
+                  <li class="team-section__job-gallery-item +">
+                    <picture>
+                      <source type="image/webp" data-srcset="assets/images/team-section-2.webp">
+                      <img class="lazy" data-src="assets/images/team-section-2.jpg" data-fancybox="" alt="Фото сотрудника">
+                    </picture>
+                  </li>
+                  <li class="team-section__job-gallery-item +">
+                    <picture>
+                      <source type="image/webp" data-srcset="assets/images/team-section-3.webp">
+                      <img class="lazy" data-src="assets/images/team-section-3.jpg" data-fancybox="" alt="Фото сотрудника">
+                    </picture>
+                  </li>
+                  <li class="team-section__job-gallery-item +">
+                    <picture>
+                      <source type="image/webp" data-srcset="assets/images/team-section-4.webp">
+                      <img class="lazy" data-src="assets/images/team-section-4.jpg" data-fancybox="" alt="Фото сотрудника">
+                    </picture>
+                  </li>
+                  <li class="team-section__job-gallery-item + team-section__job-gallery-item--large">
+                    <picture>
+                      <source type="image/webp" data-srcset="assets/images/team-section-5.webp">
+                      <img class="lazy" data-src="assets/images/team-section-5.jpg" data-fancybox="" alt="Фото сотрудника">
+                    </picture>
+                  </li>
+                  <li class="team-section__job-gallery-item +">
+                    <picture>
+                      <source type="image/webp" data-srcset="assets/images/team-section-6.webp">
+                      <img class="lazy" data-src="assets/images/team-section-6.jpg" data-fancybox="" alt="Фото сотрудника">
+                    </picture>
+                  </li>
+                  <li class="team-section__job-gallery-item +">
+                    <picture>
+                      <source type="image/webp" data-srcset="assets/images/team-section-7.webp">
+                      <img class="lazy" data-src="assets/images/team-section-7.jpg" data-fancybox="" alt="Фото сотрудника">
+                    </picture>
+                  </li>
+                </ul>
+                <svg class="icon icon-logo-mini">
+                  <use xlink:href="assets/images/sprites/sprite-mono.svg#logo-mini"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="clients">
+          <div class="container">
+            <h2 class="clients__title js-block-animate">Наши клиенты</h2>
+            <form class="category-filter js-block-animate" action="#" data-choice-desc="Эй">
+              <div class="category-filter__radio-block">
+                <input class="category-filter__radio visually-hidden" type="radio" name="clientsCategory" id="clientsCategory1" checked="checked">
+                <label class="category-filter__label" for="clientsCategory1">Все отрасли</label>
+              </div>
+              <div class="category-filter__radio-block">
+                <input class="category-filter__radio visually-hidden" type="radio" name="clientsCategory" id="clientsCategory2">
+                <label class="category-filter__label" for="clientsCategory2">Банки</label>
+              </div>
+              <div class="category-filter__radio-block">
+                <input class="category-filter__radio visually-hidden" type="radio" name="clientsCategory" id="clientsCategory3">
+                <label class="category-filter__label" for="clientsCategory3">Инвестиционный бизнес</label>
+              </div>
+              <div class="category-filter__radio-block">
+                <input class="category-filter__radio visually-hidden" type="radio" name="clientsCategory" id="clientsCategory4">
+                <label class="category-filter__label" for="clientsCategory4">Платёжные системы и сервисы</label>
+              </div>
+              <div class="category-filter__radio-block">
+                <input class="category-filter__radio visually-hidden" type="radio" name="clientsCategory" id="clientsCategory5">
+                <label class="category-filter__label" for="clientsCategory5">Страхование и НПФ</label>
+              </div>
+              <div class="category-filter__radio-block">
+                <input class="category-filter__radio visually-hidden" type="radio" name="clientsCategory" id="clientsCategory6">
+                <label class="category-filter__label" for="clientsCategory6">Лизинг и факторинг</label>
+              </div>
+              <div class="category-filter__radio-block">
+                <input class="category-filter__radio visually-hidden" type="radio" name="clientsCategory" id="clientsCategory7">
+                <label class="category-filter__label" for="clientsCategory7">Ритейл</label>
+              </div>
+              <div class="category-filter__radio-block">
+                <input class="category-filter__radio visually-hidden" type="radio" name="clientsCategory" id="clientsCategory8">
+                <label class="category-filter__label" for="clientsCategory8">Строительство</label>
+              </div>
+              <div class="category-filter__radio-block">
+                <input class="category-filter__radio visually-hidden" type="radio" name="clientsCategory" id="clientsCategory9">
+                <label class="category-filter__label" for="clientsCategory9">Промышленность</label>
+              </div>
+              <select class="category-filter__select js-custom-select" name="clientsSelect">
+                <option>Все отрасли</option>
+                <option>Банки</option>
+                <option>Инвестиционный бизнес</option>
+                <option>Платёжные системы и сервисы</option>
+                <option>Страхование и НПФ</option>
+                <option>Лизинг и факторинг</option>
+                <option>Ритейл</option>
+                <option>Строительство</option>
+                <option>Промышленность</option>
+              </select>
+            </form>
+            <div class="clients__slider swiper js-block-animate">
+              <ul class="clients__list swiper-wrapper">
+                <li class="clients__item swiper-slide">
+                  <div class="clients__item-header">
+                    <div class="clients__item-header-left">
+                      <h3 class="clients__item-title">Сбер</h3><span class="clients__item-category category-tag">Банки</span>
+                    </div>
+                    <div class="clients__item-img">
+                      <img class="lazy" data-src="assets/images/clients-1.png" src="#" alt="Логотип клиента">
+                    </div>
+                  </div>
+                  <div class="clients__item-content">
+                    <p class="clients__item-desc">Участие в проекте по разработке программы лояльности</p>
+                    <a class="clients__item-link" href="#"><span>Читать о проекте</span>
+                      <svg class="icon icon-button-arrow">
+                        <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </li>
+                <li class="clients__item swiper-slide">
+                  <div class="clients__item-header">
+                    <div class="clients__item-header-left">
+                      <h3 class="clients__item-title">ВТБ</h3><span class="clients__item-category category-tag">Банки</span>
+                    </div>
+                    <div class="clients__item-img">
+                      <img class="lazy" data-src="assets/images/clients-1.png" src="#" alt="Логотип клиента">
+                    </div>
+                  </div>
+                  <div class="clients__item-content">
+                    <p class="clients__item-desc">Переход на микросервисную архитектуру</p>
+                    <a class="clients__item-link" href="#"><span>Читать о проекте</span>
+                      <svg class="icon icon-button-arrow">
+                        <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </li>
+                <li class="clients__item swiper-slide">
+                  <div class="clients__item-header">
+                    <div class="clients__item-header-left">
+                      <h3 class="clients__item-title">НСПК</h3><span class="clients__item-category category-tag">Платёжные системы и сервисы</span>
+                    </div>
+                    <div class="clients__item-img">
+                      <img class="lazy" data-src="assets/images/clients-1.png" src="#" alt="Логотип клиента">
+                    </div>
+                  </div>
+                  <div class="clients__item-content">
+                    <p class="clients__item-desc">Автоматизированное тестирование сервисов</p>
+                    <a class="clients__item-link" href="#"><span>Читать о проекте</span>
+                      <svg class="icon icon-button-arrow">
+                        <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </li>
+                <li class="clients__item swiper-slide">
+                  <div class="clients__item-header">
+                    <div class="clients__item-header-left">
+                      <h3 class="clients__item-title">Росгосстрах</h3><span class="clients__item-category category-tag">Страхование и НПФ</span>
+                    </div>
+                    <div class="clients__item-img">
+                      <img class="lazy" data-src="assets/images/clients-1.png" src="#" alt="Логотип клиента">
+                    </div>
+                  </div>
+                  <div class="clients__item-content">
+                    <p class="clients__item-desc">Бизнес анализ и доработка отчётности</p>
+                    <a class="clients__item-link" href="#"><span>Читать о проекте</span>
+                      <svg class="icon icon-button-arrow">
+                        <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </li>
+                <li class="clients__item swiper-slide">
+                  <div class="clients__item-header">
+                    <div class="clients__item-header-left">
+                      <h3 class="clients__item-title">Комус</h3><span class="clients__item-category category-tag">Ритейл</span>
+                    </div>
+                    <div class="clients__item-img">
+                      <img class="lazy" data-src="assets/images/clients-1.png" src="#" alt="Логотип клиента">
+                    </div>
+                  </div>
+                  <div class="clients__item-content">
+                    <p class="clients__item-desc">Систему управления проектами</p>
+                    <a class="clients__item-link" href="#"><span>Читать о проекте</span>
+                      <svg class="icon icon-button-arrow">
+                        <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </li>
+                <li class="clients__item">
+                  <a class="more-link-card" href="#">
+                    <ul class="more-link-card__photos">
+                      <li class="more-link-card__photo">
+                        <img class="lazy" data-src="assets/images/clients-1.png" src="#" alt="Логотип клиента">
+                      </li>
+                      <li class="more-link-card__photo">
+                        <img class="lazy" data-src="assets/images/clients-1.png" src="#" alt="Логотип клиента">
+                      </li>
+                      <li class="more-link-card__photo">
+                        <img class="lazy" data-src="assets/images/clients-1.png" src="#" alt="Логотип клиента">
+                      </li>
+                    </ul><span class="more-link-card__link"><span>Смотреть всех клиентов</span>
+                    <svg class="icon icon-button-arrow">
+                      <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                    </svg>
+                    </span>
+                    <svg class="icon icon-product-green-2">
+                      <use xlink:href="assets/images/sprites/sprite-multi.svg#product-green-2"></use>
+                    </svg>
+                    <svg class="icon icon-product-green-1">
+                      <use xlink:href="assets/images/sprites/sprite-multi.svg#product-green-1"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <a class="clients__link button button--blue"><span>Смотреть все</span>
+              <svg class="icon icon-button-arrow">
+                <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+              </svg>
+            </a>
+          </div>
+        </section>
+        <section class="academy-section js-block-animate">
+          <div class="container">
+            <div class="academy-section__inner">
+              <div class="academy-section__content">
+                <h2 class="academy-section__title">Академия iFellow</h2>
+                <div class="academy-section__text">
+                  <p>Прокачай себя в ИТ! Студенты нашей Академии проходят практику на внутренних проектах и получают сертификат государственного образца.</p>
+                </div>
+                <a class="academy-section__link button button--border" href="#"><span>Хочу учиться</span>
+                  <svg class="icon icon-button-arrow">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                  </svg>
+                </a>
+              </div>
+              <div class="academy-section__teachers">
+                <ul class="academy-section__teachers-list" data-count="+&nbsp;40">
+                  <li class="academy-section__teachers-item">
+                    <picture>
+                      <source type="image/webp" data-srcset="assets/images/academy-section-1.webp" alt="Фото учителя" srcset="#">
+                      <img class="lazy" data-src="assets/images/academy-section-1.png" src="#" alt="Фото учителя">
+                    </picture>
+                  </li>
+                  <li class="academy-section__teachers-item">
+                    <picture>
+                      <source type="image/webp" data-srcset="assets/images/academy-section-2.webp" alt="Фото учителя" srcset="#">
+                      <img class="lazy" data-src="assets/images/academy-section-2.png" src="#" alt="Фото учителя">
+                    </picture>
+                  </li>
+                  <li class="academy-section__teachers-item">
+                    <picture>
+                      <source type="image/webp" data-srcset="assets/images/academy-section-3.webp" alt="Фото учителя" srcset="#">
+                      <img class="lazy" data-src="assets/images/academy-section-3.png" src="#" alt="Фото учителя">
+                    </picture>
+                  </li>
+                </ul>
+                <p class="academy-section__lead">Преподаватели — штатные эксперты iFellow.</p>
+              </div>
+              <div class="academy-section__running-line js-running-line" data-duration="100000" data-direction="left">
+                <div class="academy-section__running-line-text-wrapper"><span class="academy-section__running-line-text"><span>ИТ-специальность с нуля или повышение квалификации</span>
+                  <svg class="icon icon-logo-mini">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#logo-mini"></use>
+                  </svg>
+                  </span><span class="academy-section__running-line-text"><span>ИТ-специальность с нуля или повышение квалификации</span>
+                  <svg class="icon icon-logo-mini">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#logo-mini"></use>
+                  </svg>
+                  </span><span class="academy-section__running-line-text"><span>ИТ-специальность с нуля или повышение квалификации</span>
+                  <svg class="icon icon-logo-mini">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#logo-mini"></use>
+                  </svg>
+                  </span>
+                </div>
+              </div>
+              <div class="academy-section__running-line js-running-line" data-duration="60000" data-direction="right">
+                <div class="academy-section__running-line-text-wrapper"><span class="academy-section__running-line-text"><span>ИТ-специальность с нуля или повышение квалификации</span>
+                  <svg class="icon icon-logo-mini">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#logo-mini"></use>
+                  </svg>
+                  </span><span class="academy-section__running-line-text"><span>ИТ-специальность с нуля или повышение квалификации</span>
+                  <svg class="icon icon-logo-mini">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#logo-mini"></use>
+                  </svg>
+                  </span><span class="academy-section__running-line-text"><span>ИТ-специальность с нуля или повышение квалификации</span>
+                  <svg class="icon icon-logo-mini">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#logo-mini"></use>
+                  </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="contacts-section js-block-animate">
+          <div class="container">
+            <div class="contacts-section__inner js-parallax-container">
+              <div class="contacts-section__content">
+                <h2 class="contacts-section__title">Свяжитесь с нами</h2>
+                <form class="contacts-section__form" action="#" data-need-validation="">
+                  <div class="contacts-section__input-wrapper input-wrapper">
+                    <input class="contacts-section__input input" type="text" name="contactsName" id="contactsName" data-parsley-pattern="^[а-яА-ЯA-Za-z- ]+[^s]+$" required>
+                    <label class="contacts-section__label" for="contactsName">ФИО</label>
+                  </div>
+                  <div class="contacts-section__input-wrapper input-wrapper">
+                    <input class="contacts-section__input input js-phone-input" type="tel" name="contactsPhone" id="contactsPhone" required>
+                    <label class="contacts-section__label" for="contactsPhone">Телефон</label>
+                  </div>
+                  <div class="contacts-section__input-wrapper input-wrapper">
+                    <input class="contacts-section__input input" type="text" name="contactsCompany" id="contactsCompany" required>
+                    <label class="contacts-section__label" for="contactsCompany">Компания</label>
+                  </div>
+                  <div class="contacts-section__input-wrapper input-wrapper">
+                    <input class="contacts-section__input input" type="email" name="contactsEmail" id="contactsEmail" required>
+                    <label class="contacts-section__label" for="contactsEmail">Почта</label>
+                  </div>
+                  <div class="contacts-section__input-wrapper contacts-section__input-wrapper--large input-wrapper">
+                    <input class="contacts-section__input input" type="text" name="contactsMessage" id="contactsMessage">
+                    <label class="contacts-section__label" for="contactsMessage">Ваше сообщение</label>
+                  </div>
+                  <button class="contacts-section__button button button--border-white button--large">Отправить<svg class="icon icon-button-arrow">
+                      <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                    </svg>
+                  </button>
+                  <p class="contacts-section__desc">Нажимая на кнопку вы подтверждаете, что ознакомлены с<a href="#">Политикой обработки персональных данных</a>и даёте<a href="#">Согласие на обработку персональных данных.</a>
+                  </p>
+                </form>
+              </div>
+              <img class="contacts-section__bg js-parallax-element" src="assets/images/contacts-section-bg.svg" alt="Задний фон блока">
+            </div>
+          </div>
+        </div>
       </main>
 
-      <footer class="footer">
-        <div class="site-container">
-          <h1>footer</h1>
+      <footer class="footer js-block-animate">
+        <div class="container">
+          <div class="footer__top">
+            <div class="footer__mailing">
+              <div class="footer__mailing-header">
+                <h3 class="footer__mailing-title">Подписывайтесь на рассылку наших новостей и мероприятий</h3>
+                <svg class="icon icon-logo-mini">
+                  <use xlink:href="assets/images/sprites/sprite-mono.svg#logo-mini"></use>
+                </svg>
+              </div>
+              <form class="footer__mailing-form" action="#" data-need-validation="">
+                <div class="footer__mailing-input-wrapper input-wrapper">
+                  <input class="footer__mailing-input input" type="email" name="mailingEmail" id="mailingEmail" required>
+                  <label class="footer__mailing-label" for="mailingEmail">Ваша почта</label>
+                </div>
+                <button class="footer__mailing-button" type="submit">Подписаться<svg class="icon icon-button-arrow">
+                    <use xlink:href="assets/images/sprites/sprite-mono.svg#button-arrow"></use>
+                  </svg>
+                </button>
+              </form>
+              <p class="footer__mailing-desc">Нажимая на кнопку вы подтверждаете, что ознакомлены с<a href="#">Политикой обработки персональных данных</a>и даёте<a href="#">Согласие на обработку персональных данных.</a>
+              </p>
+            </div>
+            <div class="footer__content">
+              <div class="footer__menu">
+                <div class="footer__menu-block">
+                  <h3 class="footer__menu-title">Клиентам и Партнёрам</h3>
+                  <ul class="footer__menu-list">
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">Продукты</a>
+                    </li>
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">Услуги</a>
+                    </li>
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">Импортозамещение</a>
+                    </li>
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">Проекты</a>
+                    </li>
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">Медиацентр</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="footer__menu-block">
+                  <h3 class="footer__menu-title">Соискателям</h3>
+                  <ul class="footer__menu-list">
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">Академия iFellow</a>
+                    </li>
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">Команда iFellow</a>
+                    </li>
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">Вакансии</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="footer__menu-block">
+                  <h3 class="footer__menu-title">О компании</h3>
+                  <ul class="footer__menu-list">
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">О компании</a>
+                    </li>
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">Тендеры</a>
+                    </li>
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">Клиенты и партнёры</a>
+                    </li>
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">Контакты</a>
+                    </li>
+                    <li class="footer__menu-item">
+                      <a class="footer__menu-link link" href="#">Результаты проведения специальной оценки условий труда</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer__contacts">
+                <div class="footer__contacts-top">
+                  <a class="footer__contacts-logo" href="index.html">
+                    <svg class="icon icon-logo-black">
+                      <use xlink:href="assets/images/sprites/sprite-multi.svg#logo-black"></use>
+                    </svg>
+                  </a>
+                  <a class="footer__contacts-link link" href="tel:+74955404956">+7 495 540-49-56</a>
+                  <a class="footer__contacts-link link" href="mailto:info@ifellow.ru">info@ifellow.ru</a>
+                </div>
+                <div class="footer__contacts-bottom">
+                  <ul class="socials">
+                    <li class="socials__item">
+                      <a class="socials__link" href="#">
+                        <img class="lazy" data-src="assets/images/social-1.svg" src="#" alt="Иконка социальной сети">
+                      </a>
+                    </li>
+                    <li class="socials__item">
+                      <a class="socials__link" href="#">
+                        <img class="lazy" data-src="assets/images/social-2.svg" src="#" alt="Иконка социальной сети">
+                      </a>
+                    </li>
+                    <li class="socials__item">
+                      <a class="socials__link" href="#">
+                        <img class="lazy" data-src="assets/images/social-3.svg" src="#" alt="Иконка социальной сети">
+                      </a>
+                    </li>
+                    <li class="socials__item">
+                      <a class="socials__link" href="#">
+                        <img class="lazy" data-src="assets/images/social-4.svg" src="#" alt="Иконка социальной сети">
+                      </a>
+                    </li>
+                  </ul>
+                  <address class="footer__contacts-address">101000, г. Москва, Лубянский проезд, д. 15, стр. 2</address>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <a class="footer__confidence" href="#">Политика конфиденциальности</a><span class="footer__ifellow">© 2022 iFellow</span><span class="footer__developer"><span>Сайт разработан</span>
+            <a href="https://markweber.ru/" aria-label="Марк Вебер">
+              <svg class="icon icon-mark-weber">
+                <use xlink:href="assets/images/sprites/sprite-multi.svg#mark-weber"></use>
+              </svg>
+            </a>
+            </span>
+          </div>
         </div>
       </footer>
     </div>
@@ -57,4 +1187,5 @@
   </body>
   <script src="assets/js/main.js?v=0.0.0.0"></script>
   <script src="assets/js/backend.js?v=0.0.0.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </html>
